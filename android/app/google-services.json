@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "537518650000",
+    "project_id": "umeshweb-954c0",
+    "storage_bucket": "umeshweb-954c0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:537518650000:android:91dbb3ec723cf6e4cb1e15",
+        "android_client_info": {
+          "package_name": "com.example.intro_appp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB35M8rrGUWnOcyJ8hNKRaF75LL-ZqdjuI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

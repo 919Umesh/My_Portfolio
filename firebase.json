@@ -1,0 +1,39 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "umeshweb-954c0",
+          "appId": "1:537518650000:android:91dbb3ec723cf6e4cb1e15",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "umeshweb-954c0",
+          "configurations": {
+            "android": "1:537518650000:android:91dbb3ec723cf6e4cb1e15",
+            "ios": "1:537518650000:ios:021fce50a58b8c08cb1e15",
+            "macos": "1:537518650000:ios:021fce50a58b8c08cb1e15",
+            "web": "1:537518650000:web:fa08e61cca9f25cfcb1e15",
+            "windows": "1:537518650000:web:a169c787905dd24ccb1e15"
+          }
+        }
+      }
+    }
+  },
+  "hosting": {
+    "public": "build/web",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
