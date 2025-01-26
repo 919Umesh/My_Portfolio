@@ -20,7 +20,7 @@ class TopNavigationBar extends StatelessWidget {
             padding: const EdgeInsets.all(defaultPadding),
             child: !Responsive.isLargeMobile(context)
                 ? ShaderMask(
-              shaderCallback: (bounds) => LinearGradient(
+              shaderCallback: (bounds) => const LinearGradient(
                 colors: [linear1, linear2],
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
@@ -32,9 +32,10 @@ class TopNavigationBar extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                   color: Colors.white, // Text color for non-gradient areas
                 ),
+                 // debugPrint(jsonData.toString());
               ),
             )
-                : MenuButton(onTap: () => Scaffold.of(context).openDrawer()),
+                : Container(),
           ),
           const Spacer(flex: 3), // Increased flex value to push the buttons further right
           if (!Responsive.isLargeMobile(context)) const NavigationButtonList(),

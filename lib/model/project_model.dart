@@ -35,4 +35,9 @@ List<Project> projectList = [
       'OMS Mechanic generally refers to a specific type of Order Management System (OMS) tailored for the automotive repair and maintenance industry',
       'assets/images/mechanic.png',
       'https://play.google.com/store/apps/details?id=com.globaltech.mechanic&hl=en_AU'),
+  Project(
+      'OMS Retails',
+      'Transform Your Retail Business with Our All-Inclusive Retails App',
+      'assets/images/mechanic.png',
+      'https://play.google.com/store/apps/details?id=com.omsretails.retailsoms.oms&hl=en'),
 ];

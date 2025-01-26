@@ -5,176 +5,99 @@ class SkillsContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 24.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            _buildSkillSection(
+              context,
+              title: 'Professional Skills',
+              skills: ['Flutter', 'Dart','State\nManagement', 'MVC Architecture','Firebase', 'SQLite','Node JS'],
+            ),
+            const SizedBox(height: 24),
+            _buildSkillSection(
+              context,
+              title: 'Additional Skills',
+              skills: ['Git', 'Postman', 'Google Map'],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildSkillSection(BuildContext context, {
+    required String title,
+    required List<String> skills,
+  }) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Expanded(
-          child: Container(
-            padding: const EdgeInsets.all(16.0),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10.0),
-              color: Colors.grey[200],
-            ),
-            child: const Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Center(
-                  child: Text(
-                    'Skills',
-                    style: TextStyle(
-                      fontSize: 18.0,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                SizedBox(height: 16.0),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Expanded(
-                      child: _SkillItem(
-                        icon: Icons.check_circle_outline,
-                        text: 'Flutter',
-                      ),
-                    ),
-                    Expanded(
-                      child: _SkillItem(
-                        icon: Icons.check_circle_outline,
-                        text: 'Dart',
-                      ),
-                    ),
-                    Expanded(
-                      child: _SkillItem(
-                        icon: Icons.check_circle_outline,
-                        text: 'State Management',
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 16.0),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Expanded(
-                      child: _SkillItem(
-                        icon: Icons.check_circle_outline,
-                        text: 'Firebase',
-                      ),
-                    ),
-                    Expanded(
-                      child: _SkillItem(
-                        icon: Icons.check_circle_outline,
-                        text: 'SQL Lite',
-                      ),
-                    ),
-                    Expanded(
-                      child: _SkillItem(
-                        icon: Icons.check_circle_outline,
-                        text: 'HTML, CSS',
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
+        Text(
+          title,
+          style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+            fontWeight: FontWeight.bold,
+            color: Colors.white
           ),
         ),
-        SizedBox(width: 25.0,),
-        Expanded(
-          child: Container(
-            padding: const EdgeInsets.all(16.0),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10.0),
-              color: Colors.grey[200],
-            ),
-            child: const Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Center(
-                  child: Text(
-                    'Extra Skills',
-                    style: TextStyle(
-                      fontSize: 18.0,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                SizedBox(height: 16.0),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Expanded(
-                      child: _SkillItem(
-                        icon: Icons.check_circle_outline,
-                        text: 'Git',
-                      ),
-                    ),
-                    Expanded(
-                      child: _SkillItem(
-                        icon: Icons.check_circle_outline,
-                        text: 'Postman',
-                      ),
-                    ),
-                    Expanded(
-                      child: _SkillItem(
-                        icon: Icons.check_circle_outline,
-                        text: 'Encryption',
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 16.0),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Expanded(
-                      child: _SkillItem(
-                        icon: Icons.check_circle_outline,
-                        text: 'Google Map',
-                      ),
-                    ),
-                    Expanded(
-                      child: _SkillItem(
-                        icon: Icons.check_circle_outline,
-                        text: 'General Knowledge',
-                      ),
-                    ),
-                    Expanded(
-                      child: _SkillItem(
-                        icon: Icons.check_circle_outline,
-                        text: 'Speaking Skills',
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
+        const SizedBox(height: 16),
+        LayoutBuilder(
+          builder: (context, constraints) {
+            return constraints.maxWidth > 600
+                ? _buildDesktopSkills(skills)
+                : _buildMobileSkills(skills);
+          },
         ),
       ],
     );
   }
-}
 
-class _SkillItem extends StatelessWidget {
-  final IconData icon;
-  final String text;
-  final String? subtitle;
+  Widget _buildDesktopSkills(List<String> skills) {
+    return Wrap(
+      spacing: 16,
+      runSpacing: 16,
+      alignment: WrapAlignment.center,
+      children: skills.map((skill) => _skillItem(skill)).toList(),
+    );
+  }
 
-  const _SkillItem({
-    required this.icon,
-    required this.text,
-    this.subtitle,
-  });
-
-  @override
-  Widget build(BuildContext context) {
+  Widget _buildMobileSkills(List<String> skills) {
     return Column(
-      children: [
-        Icon(icon),
-        const SizedBox(height: 4.0),
-        Text(text),
-        if (subtitle != null) Text(subtitle!),
-      ],
+      children: skills.map((skill) => Padding(
+        padding: const EdgeInsets.symmetric(vertical: 8.0),
+        child: _skillItem(skill),
+      )).toList(),
+    );
+  }
+
+  Widget _skillItem(String skill) {
+    return Container(
+      width: 150,
+      padding: const EdgeInsets.all(12.0),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: Colors.blue.shade300),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const Icon(Icons.check_circle_outline, color: Colors.grey, size: 24),
+          const SizedBox(width: 10),
+          Flexible(
+            child: Text(
+              skill,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontSize: 14.0,
+                fontWeight: FontWeight.w500,
+                color: Colors.white
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

@@ -13,7 +13,7 @@ class DrawerImage extends StatelessWidget {
       padding: const EdgeInsets.all(defaultPadding/6),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(50),
-          gradient: LinearGradient(
+          gradient: const LinearGradient(
             colors: [
               linear1,
               linear2,

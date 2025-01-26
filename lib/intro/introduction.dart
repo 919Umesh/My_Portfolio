@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../view model/responsive.dart';
 import 'components/intro_body.dart';
-import 'components/side_menu_button.dart';
-import 'components/social_media_list.dart';
 class Introduction extends StatelessWidget {
   const Introduction({super.key});
   @override

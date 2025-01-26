@@ -20,14 +20,14 @@ class SquareImageContainer extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(borderRadius),
           // Uncomment and adjust these lines if you want to add a shadow
-          // boxShadow: [
-          //   BoxShadow(
-          //     color: Colors.grey.withOpacity(0.5),
-          //     spreadRadius: 5,
-          //     blurRadius: 15,
-          //     offset: const Offset(0, 3), // changes position of shadow
-          //   ),
-          // ],
+          boxShadow: [
+            BoxShadow(
+              color: Colors.blue.withOpacity(0.5),
+              spreadRadius: 5,
+              blurRadius: 15,
+              offset: const Offset(0, 3), // changes position of shadow
+            ),
+          ],
         ),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(borderRadius),
