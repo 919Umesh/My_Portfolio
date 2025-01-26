@@ -9,8 +9,8 @@ class SquareImageContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final containerSize = min(size.width, size.height) * 0.6; // Reduce size for padding effect
-    final borderRadius = containerSize / 2; // Circular border
+    final containerSize = min(size.width, size.height) * 0.6;
+    final borderRadius = containerSize / 2;
 
     return Center(
       child: Container(
@@ -19,13 +19,12 @@ class SquareImageContainer extends StatelessWidget {
         padding: const EdgeInsets.all(12.0),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(borderRadius),
-          // Uncomment and adjust these lines if you want to add a shadow
           boxShadow: [
             BoxShadow(
               color: Colors.blue.withOpacity(0.5),
               spreadRadius: 5,
               blurRadius: 15,
-              offset: const Offset(0, 3), // changes position of shadow
+              offset: const Offset(0, 3),
             ),
           ],
         ),
