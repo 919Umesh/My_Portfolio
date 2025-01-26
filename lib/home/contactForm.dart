@@ -194,7 +194,7 @@ class _ContactFormScreenState extends State<ContactFormScreen> {
           children: [
             _buildFormField(
               controller: _nameController,
-              label: 'Full Name',
+              label: 'Name',
               hint: 'Enter your name...',
             ),
             const SizedBox(height: 20),
